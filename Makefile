@@ -1,4 +1,5 @@
 include .envrc
+DB_ADDR = "postgres://admin:adminpassword@localhost/socialnetwork?sslmode=disable"
 MIGRATIONS_PATH = ./cmd/migrate/migrations
 
 .PHONY: test

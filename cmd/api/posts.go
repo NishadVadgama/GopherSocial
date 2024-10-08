@@ -92,6 +92,13 @@ func (app *application) getPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	post.Comments = comments
 
+	user, err := app.store.Users.GetByID(r.Context(), post.UserID)
+	if err != nil {
+		app.internalServerError(w, r, err)
+		return
+	}
+	post.User = *user
+
 	if err := app.jsonResponse(w, http.StatusOK, post); err != nil {
 		app.internalServerError(w, r, err)
 		return
