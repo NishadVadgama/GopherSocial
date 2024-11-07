@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## URL patterns
+
+### Main Platform URLs:
+
+- acme.com - Main marketing website and platform homepage
+- acme.com/login - Secure login portal for business owners and team members
+- acme.com/register - Business account registration page
+- acme.com/dashboard - Business portfolio overview - manage all your registered businesses in one place, assuming user can have multiple businesses/branches
+  - jiffy-lube-kitchener.acme.com
+  - jiffy-lube-waterloo.acme.com
+
+### Business-Specific URLs:
+
+- acme.com/sites/[domain] - Individual business storefront/landing page
+  - Accessible via: [domain].acme.com
+  - Example: A business called "Jiffy Lube Kitchener" might use jiffy-lube-kitchener.acme.com
+
+- acme.com/sites/[domain]/dashboard - Business management hub
+  - Accessible via: [domain].acme.com/dashboard
+  - Restricted to business owners and authorized team members
+  - Contains all dashboard-related functionality and settings
+
+- acme.com/sites/[domain]/my_account - Client self-service portal
+  - Accessible via: [domain].acme.com/my_account
+  - Secure area for customers to manage their account and services

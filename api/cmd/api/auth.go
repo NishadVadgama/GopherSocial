@@ -174,7 +174,17 @@ func (app *application) createTokenHandler(w http.ResponseWriter, r *http.Reques
 		app.internalServerError(w, r, err)
 		return
 	}
-
+	tokenCookie := http.Cookie{
+		Name:     "token",
+		Path:     "/",
+		Value:    token,
+		Domain:   "localhost",
+		Expires:  time.Now().Add(time.Hour * 24 * 60),
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode,
+	}
+	http.SetCookie(w, &tokenCookie)
 	if err := app.jsonResponse(w, http.StatusCreated, token); err != nil {
 		app.internalServerError(w, r, err)
 	}
